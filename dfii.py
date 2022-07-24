@@ -8,20 +8,77 @@ GREEN = '\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
 
+def my_split(s):
+    x = []
+    i = 0
+    slen = len(s)
+    # print (slen)
+    while i < slen:
+        x.append(s[i])
+        i += 1
+    return x
+
+def rev_str(s):
+    ns = ''
+    slen = len(s) - 1
+    while slen > 0:
+        ns += s[slen]
+        slen -= 1
+    ns += s[slen]
+    return ns
+
+def check_str(s1, s2):
+    i = 0
+    x1 = my_split(s1)
+    x2 = my_split(s2)
+    len1 = len(x1)
+    len2 = len(x2)
+    str_res_start = ''
+    str_res_end = ''
+    while  len1 > i and len2 > i:
+        if x1[i] == x2[i]:
+            str_res_start += x1[i]
+        i += 1
+    len1 -= 1
+    len2 -= 1
+    while  x1[len1] == x2[len2]:
+        str_res_end += x1[len1]
+        # print (x1[len1], len1, len2)
+        len1 -= 1
+        len2 -= 1
+    # print (s1, s2)
+    str_res_end = rev_str(str_res_end)
+    # print ()
+    # print ("start", str_res_start, str_res_end)
+    return str_res_start, str_res_end
+
 def color_diff(s1, s2):
     i = 0
+    i1 = 0
+    i2 = 0
     x1 = s1.split(' ')
     x2 = s2.split(' ')
     str_res = ''
-    while len(x1) > i and len(x2) > i:
+    start = ''
+    end = ''
+    len1 = len(x1)
+    len2 = len(x2)
+    while  len1 > i and len2 > i:
         if x1[i] == x2[i]:
             str_res += x1[i] + ' '
         else:
+            # x1[i], x2[i] = 
+            n_start, n_end = check_str(x1[i], x2[i])
+            # while x1[i][i1] == x2[i][i1]:
+            #     start += x1[i][i1]
+            #     i1 += 1
+            # i2 = len(x1[i]) - 1
+            # while x1[i][i2] == x2[i][i2]:
+            #     end += x1[i][i2]
+            #     i2 -= 1
             str_res += f'[{RED}{x1[i]}{NC}/{GREEN}{x2[i]}{NC}]' + ' '
         
         i += 1
-    # print (x1[1])
-    # print (x2[1])
     print(str_res)
 
 s1 = '''
