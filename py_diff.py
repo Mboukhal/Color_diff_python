@@ -52,7 +52,7 @@ def check_str(s1, s2):
     elen = len(str_res_end)
     return str_res_start, str_res_end, s1[slen:-elen], s2[slen:-elen]
 
-def py_diff(s1, s2):
+def diff(s1, s2):
     i = 0
     i1 = 0
     i2 = 0
