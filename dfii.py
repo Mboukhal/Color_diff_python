@@ -10,67 +10,20 @@ NC='\033[0m'
 
 def color_diff(s1, s2):
     i = 0
-    len1 = len(s1)
-    len2 = len(s2)
-    li = {
-        'shurt' : '',
-        'long' : '',
-        's' : 0,
-        'l' : 0,
-        'cs' : 0,
-        'cl' : 0
-        }
-    if len1 < len2:
-        li['shurt'] = s1
-        li['long'] = s2
-        li['cs'] = len1
-        li['cl'] = len2
-        len_t = len2
-    else:
-        li['shurt'] = s2
-        li['long'] = s1
-        li['cs'] = len2
-        li['cl'] = len1
-        len_t = len1
-    # print (len_t)
-
-    while len_t > i + 1:
-        if li['long'][li['l']] != li['shurt'][li['s']] \
-            and li['s'] < li['cs'] and li['l'] < li['cl']:
-            str1 = f'[{RED}'
-            str2 = f'{NC}/{GREEN}'
-            while li['s'] < li['cs'] and li['l'] < li['cl'] \
-                and li['long'][li['l']] != li['shurt'][li['s']]: 
-                str1 += li['long'][li['l']]
-                str2 += li['shurt'][li['s']]
-                li['s'] += 1
-                li['l'] += 1
-                i += 1
-            if li['s'] < li['cs'] and li['l'] < li['cl']:
-                str1 += li['long'][li['l']]
-                str2 += li['shurt'][li['s']]
-                li['s'] += 1
-                li['l'] += 1
-            str2 += f'{NC}]'
-            str1 += str2
-            print(str1, end='')
-            # print(li['long'][li['l']], end='')
+    x1 = s1.split(' ')
+    x2 = s2.split(' ')
+    str_res = ''
+    while len(x1) > i and len(x2) > i:
+        if x1[i] == x2[i]:
+            str_res += x1[i] + ' '
         else:
-           if li['s'] < li['cs'] and li['l'] < li['cl']:
-                print(li['long'][i], end='')
-        li['s'] += 1
-        li['l'] += 1
+            str_res += f'[{RED}{x1[i]}{NC}/{GREEN}{x2[i]}{NC}]' + ' '
+        
         i += 1
-    if li['s'] < li['cs'] and li['l'] < li['cl']:
-        print(li['long'][i], end='')
-    print()
-'''        str += x[i]
-        if s1[i] != s2[i]:
-            str += RED
-            #while  lenx >= i and (s1[i] != s2[i]):
-             #   i += 1
-            str += END
-'''
+    # print (x1[1])
+    # print (x2[1])
+    print(str_res)
+
 s1 = '''
 token (|echo|, 0)
 token (|-nsdkfghj|, 9)
@@ -107,7 +60,7 @@ cmd(3, [echo -nnnsdkfghsdkfjghnnnnn -77nnnkljptrtfnnn88 hello world;            
 r1 = 'hi lilo ok/Users/piola/lilo/parsing'
 r2 = 'hi kaio ok/Users/piola/lilo/parsing'
 
-color_diff(r1, r2)
+# color_diff(r1, r2)
 # print()
 # print()
-# color_diff(s1, s2)
+color_diff(s1, s2)
