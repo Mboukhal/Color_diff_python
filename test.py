@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from diff import py_diff
+from pyDiff import diff, lineDiff
 """
     py_diff 0.1
     made by kai/Mboukhal
@@ -40,7 +40,9 @@ cmd(3, [echo -nnnsdkfghsdkfjghnnnnn -77nnnkljptrtfnnn88 hello world;            
 r1 = 'hi slilo ok/Users/piola/lilo/parsing'
 r2 = 'hi skaio ok/Users/piola/lilo/parsing'
 
-diff1 = py_diff(r1, r2)
-diff2 = py_diff(s1, s2)
+diff1 = diff(r1, r2)
+diff2 = diff(s1, s2)
+line = lineDiff(s1, s2)
 
-print (diff1,'\n\n',diff2)
+# print (diff1,'\n\n',diff2)
+print (line)
