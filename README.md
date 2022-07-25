@@ -1,4 +1,4 @@
-# py_diff
+# pydiff
 
 python small script for recognising difference between two strings  
   
