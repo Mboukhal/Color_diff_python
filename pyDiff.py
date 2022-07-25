@@ -1,12 +1,17 @@
+#!/usr/bin/env python3
 """
-    py_diff 0.1
+    pyDiff 0.1
     made by kai/Mboukhal
 """
 
-GREEN = '\033[0;32m'
-RED = '\033[0;31m'
-YELLOW = '\033[0;33m'
-NC = '\033[0m'
+# from diffLine import diffLine
+
+colors = {
+'GREEN' : '\e[0;32m',
+'RED' : '\e[0;31m',
+'YELLOW' : '\e[0;33m',
+'NC' : '\e[0m'
+}
 
 def my_split(s):
     x = []
@@ -53,9 +58,6 @@ def check_str(s1, s2):
     elen = len(str_res_end)
     return str_res_start, str_res_end, s1[slen:-elen], s2[slen:-elen]
 
-def lineDiff(s1, s2):
-    
-
 def diff(s1, s2):
     i = 0
     i1 = 0
@@ -72,7 +74,12 @@ def diff(s1, s2):
             str_res += x1[i] + ' '
         else:
             n_start, n_end, ss1, ss2 = check_str(x1[i], x2[i])
-            str_res += f'{n_start}{YELLOW}[{NC}{RED}{ss1}{NC}{YELLOW}/{NC}{GREEN}{ss2}{NC}{YELLOW}]{NC}{n_end}' + ' '
+            # str_res += f'{n_start}{colors['YELLOW']}'
+            # str_res += f'[{colors['NC']}{colors['RED']}{ss1}{colors['NC']}{colors['YELLOW']}'
+            # str_res += f'/{colors['NC']}{colors['GREEN']}{ss2}{colors['NC']}{colors['YELLOW']}]'
+            # str_res += f'{colors['NC']}{n_end}' + ' '
         i += 1
     # print(str_res)
     return str_res
+# print (colors)
+print (f'{colors['YELLOW']}OK{colors['NC']}')
