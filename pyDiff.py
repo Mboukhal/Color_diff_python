@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
+
 """
     pyDiff 0.1
     made by kai/Mboukhal
 """
 
 # from diffLine import diffLine
+from colors import colors
 
-colors = {
-'GREEN' : '\e[0;32m',
-'RED' : '\e[0;31m',
-'YELLOW' : '\e[0;33m',
-'NC' : '\e[0m'
-}
 
 def my_split(s):
     x = []
@@ -82,4 +78,4 @@ def diff(s1, s2):
     # print(str_res)
     return str_res
 # print (colors)
-print (f'{colors['YELLOW']}OK{colors['NC']}')
+print (f'{colors.fg.YELLOW}OK{colors.NC}')
