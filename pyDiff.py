@@ -78,4 +78,4 @@ def diff(s1, s2):
     # print(str_res)
     return str_res
 # print (colors)
-print (f'{colors.bg.YELLOW}OK{colors.NC}')
+print (f'{colors.bg.RED}OK{colors.NC}')
